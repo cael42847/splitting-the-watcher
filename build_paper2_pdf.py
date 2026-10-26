@@ -84,7 +84,7 @@ for line in body:
             in_abstract = True; continue
         in_abstract = False
         text = re.sub(r'^(\d+) ', r'\1. ', text)   # "1 Introduction" -> "1. Introduction", as the template
-        cls = ' class="newpage"' if (text == 'References' or text.startswith('Appendix A')) else ''
+        cls = ' class="newpage"' if text.startswith('Appendix A') else ''
         out.append(f'<h{level}{cls}>{inline(text)}</h{level}>'); continue
     m = re.match(r'^\s*(-|\d+\.)\s+(.*)', line)
     if m and not in_abstract:

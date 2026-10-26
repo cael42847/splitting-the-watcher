@@ -184,7 +184,7 @@ Scheduled price cuts, the restriction that removed the most collusion in Paper 1
 
 ## Code and Data
 
-Everything is at https://github.com/cael42847/splitting-the-watcher: the paper, the code, every market and every reader's answer, the pre-registrations (the `PREREG` files, each written before its run) and the cold reads. The markets are under `slope/runs/money/saydo/`, the readers' answers under `slope/runs/money/saydo-watch/`. The scorers (`slope/score_indep.py`, `split_indep.py`, `score_haiku.py`, `score_temp.py`, `score_temp_haiku.py`) rebuild every `SCORES` file from them; the `slope/draw_paper2` scripts draw the figures.
+The paper, the code, every market and every reader's answer, the pre-registrations and the cold reads are at https://github.com/cael42847/splitting-the-watcher.
 
 ## References
 
