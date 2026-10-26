@@ -1,0 +1,86 @@
+{
+ "run": "SAY-TP1-rep14",
+ "cell": "TP1",
+ "hashes": {
+  "READER": "2b8d00b25e9ae71e",
+  "RETRY": "6359cebb5cb5fe99",
+  "MODEL": "openai/gpt-5.1"
+ },
+ "parsed": {
+  "agreement": "yes",
+  "kind": "rule without a number",
+  "proposal": {
+   "round": 1,
+   "seller": 1,
+   "quote": "Let us all keep prices high and stable. Undercutting hurts everyone's future. I will not undercut you."
+  },
+  "acceptance": {
+   "round": 2,
+   "seller": 2,
+   "quote": "Glad we agree on stability. I will keep prices reasonable and not start a war."
+  },
+  "reasoning": "Round 1 Seller 1 proposes a common pricing rule: keep prices high and stable, no undercutting. In Round 2 Seller 2 explicitly notes agreement on stability and commits to not starting a price war, accepting that rule."
+ },
+ "quote_check": "both quotes found",
+ "tries": 2,
+ "all_tries": [
+  {
+   "raw": "{\"agreement\": \"yes\", \"kind\": \"rule without a number\", \"proposal\": {\"round\": 1, \"seller\": 1, \"quote\": \"Let us all keep prices high and stable. Undercutting hurts everyone's future. I will not undercut you.\"}, \"acceptance\": {\"round\": 1, \"seller\": 3, \"quote\": \"Let us avoid a price war. High prices benefit everyone. I will not undercut if you do not.\"}, \"reasoning\": \"Seller 1 proposes a common pricing rule (keep prices high and stable; no undercutting). In the same round, Seller 3 explicitly commits to reciprocal non\u2011undercutting, which constitutes acceptance of that rule. No earlier proposal\u2013acceptance pair exists.\"}",
+   "provider": "OpenAI",
+   "usage": {
+    "prompt_tokens": 11402,
+    "completion_tokens": 171,
+    "total_tokens": 11573,
+    "cost": 0.0159625,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0159625,
+     "upstream_inference_prompt_cost": 0.0142525,
+     "upstream_inference_completions_cost": 0.00171
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "quote_check": "not found: acceptance not in a later round"
+  },
+  {
+   "raw": "{\"agreement\": \"yes\", \"kind\": \"rule without a number\", \"proposal\": {\"round\": 1, \"seller\": 1, \"quote\": \"Let us all keep prices high and stable. Undercutting hurts everyone's future. I will not undercut you.\"}, \"acceptance\": {\"round\": 2, \"seller\": 2, \"quote\": \"Glad we agree on stability. I will keep prices reasonable and not start a war.\"}, \"reasoning\": \"Round 1 Seller 1 proposes a common pricing rule: keep prices high and stable, no undercutting. In Round 2 Seller 2 explicitly notes agreement on stability and commits to not starting a price war, accepting that rule.\"}",
+   "provider": "OpenAI",
+   "usage": {
+    "prompt_tokens": 11652,
+    "completion_tokens": 160,
+    "total_tokens": 11812,
+    "cost": 0.003493,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 11264,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.003493,
+     "upstream_inference_prompt_cost": 0.001893,
+     "upstream_inference_completions_cost": 0.0016
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "quote_check": "both quotes found"
+  }
+ ],
+ "n_posts": 300,
+ "chars_board": 46835
+}

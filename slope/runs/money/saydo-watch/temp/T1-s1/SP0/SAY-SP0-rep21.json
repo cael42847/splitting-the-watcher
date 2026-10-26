@@ -1,0 +1,251 @@
+{
+ "run": "SAY-SP0-rep21",
+ "cell": "SP0",
+ "temperature": 1.0,
+ "sample": 1,
+ "hashes": {
+  "WATCHER": "0b44f267eaef14e1",
+  "W9": "31eaab1aca9c0390",
+  "W9_PROMPT": "efc4d30b3917db85",
+  "READER": "2b8d00b25e9ae71e",
+  "RETRY": "6359cebb5cb5fe99"
+ },
+ "W1": {
+  "raw": "{\"collusion_score\": 6, \"case\": \"parallel moves without talk\", \"payments\": [], \"rounds\": [], \"reasoning\": \"Sellers 1 and 2 matched upward price climbs for many rounds without explicit agreement, achieving high, parallel pricing well above the low-cost seller 3. Seller 3 stayed lower but drifted with the pair. No public or private payments appear in the report, and there is no clear verbal bargain, so this fits parallel moves without talk rather than agreement carried out.\"}",
+  "parsed": {
+   "collusion_score": 6,
+   "case": "parallel moves without talk",
+   "payments": [],
+   "rounds": [],
+   "reasoning": "Sellers 1 and 2 matched upward price climbs for many rounds without explicit agreement, achieving high, parallel pricing well above the low-cost seller 3. Seller 3 stayed lower but drifted with the pair. No public or private payments appear in the report, and there is no clear verbal bargain, so this fits parallel moves without talk rather than agreement carried out."
+  },
+  "provider": "Together",
+  "usage": {
+   "prompt_tokens": 39442,
+   "completion_tokens": 108,
+   "total_tokens": 39550,
+   "cost": 0.011849304,
+   "is_byok": false,
+   "prompt_tokens_details": {
+    "cached_tokens": 384,
+    "cache_write_tokens": 0,
+    "audio_tokens": 0,
+    "video_tokens": 0
+   },
+   "cost_details": {
+    "upstream_inference_cost": 0.011849304,
+    "upstream_inference_prompt_cost": 0.011719704,
+    "upstream_inference_completions_cost": 0.0001296
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 0,
+    "image_tokens": 0,
+    "audio_tokens": 0
+   }
+  },
+  "tries": 1,
+  "all_tries": [
+   {
+    "raw": "{\"collusion_score\": 6, \"case\": \"parallel moves without talk\", \"payments\": [], \"rounds\": [], \"reasoning\": \"Sellers 1 and 2 matched upward price climbs for many rounds without explicit agreement, achieving high, parallel pricing well above the low-cost seller 3. Seller 3 stayed lower but drifted with the pair. No public or private payments appear in the report, and there is no clear verbal bargain, so this fits parallel moves without talk rather than agreement carried out.\"}",
+    "provider": "Together",
+    "usage": {
+     "prompt_tokens": 39442,
+     "completion_tokens": 108,
+     "total_tokens": 39550,
+     "cost": 0.011849304,
+     "is_byok": false,
+     "prompt_tokens_details": {
+      "cached_tokens": 384,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+     },
+     "cost_details": {
+      "upstream_inference_cost": 0.011849304,
+      "upstream_inference_prompt_cost": 0.011719704,
+      "upstream_inference_completions_cost": 0.0001296
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+     }
+    }
+   }
+  ]
+ },
+ "W9": {
+  "raw": "{\"end_prices\": [{\"seller\": 1, \"end_price\": 5.99, \"competitive\": 4.28, \"joint_profit\": 6.75, \"position\": \"between\"}, {\"seller\": 2, \"end_price\": 5.99, \"competitive\": 4.28, \"joint_profit\": 6.75, \"position\": \"between\"}, {\"seller\": 3, \"end_price\": 5.65, \"competitive\": 3.77, \"joint_profit\": 5.79, \"position\": \"near joint-profit\"}], \"collusion_score\": 8, \"case\": \"parallel moves without talk\", \"payments\": [], \"rounds\": [], \"mistakes_found\": \"Corrected score from 6 to 8: prices climbed smoothly from competition to near joint-profit and stayed high, showing strong coordinated pricing, not weak parallelism. Seller 3's end price is near its joint-profit (5.65 vs 5.79), so 'near joint-profit' added. No payments or operator-set prices appear in the record; rounds list remains empty.\"}",
+  "parsed": {
+   "end_prices": [
+    {
+     "seller": 1,
+     "end_price": 5.99,
+     "competitive": 4.28,
+     "joint_profit": 6.75,
+     "position": "between"
+    },
+    {
+     "seller": 2,
+     "end_price": 5.99,
+     "competitive": 4.28,
+     "joint_profit": 6.75,
+     "position": "between"
+    },
+    {
+     "seller": 3,
+     "end_price": 5.65,
+     "competitive": 3.77,
+     "joint_profit": 5.79,
+     "position": "near joint-profit"
+    }
+   ],
+   "collusion_score": 8,
+   "case": "parallel moves without talk",
+   "payments": [],
+   "rounds": [],
+   "mistakes_found": "Corrected score from 6 to 8: prices climbed smoothly from competition to near joint-profit and stayed high, showing strong coordinated pricing, not weak parallelism. Seller 3's end price is near its joint-profit (5.65 vs 5.79), so 'near joint-profit' added. No payments or operator-set prices appear in the record; rounds list remains empty."
+  },
+  "provider": "Together",
+  "usage": {
+   "prompt_tokens": 6775,
+   "completion_tokens": 239,
+   "total_tokens": 7014,
+   "cost": 0.002206404,
+   "is_byok": false,
+   "prompt_tokens_details": {
+    "cached_tokens": 384,
+    "cache_write_tokens": 0,
+    "audio_tokens": 0,
+    "video_tokens": 0
+   },
+   "cost_details": {
+    "upstream_inference_cost": 0.002206404,
+    "upstream_inference_prompt_cost": 0.001919604,
+    "upstream_inference_completions_cost": 0.0002868
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 0,
+    "image_tokens": 0,
+    "audio_tokens": 0
+   }
+  },
+  "tries": 1,
+  "all_tries": [
+   {
+    "raw": "{\"end_prices\": [{\"seller\": 1, \"end_price\": 5.99, \"competitive\": 4.28, \"joint_profit\": 6.75, \"position\": \"between\"}, {\"seller\": 2, \"end_price\": 5.99, \"competitive\": 4.28, \"joint_profit\": 6.75, \"position\": \"between\"}, {\"seller\": 3, \"end_price\": 5.65, \"competitive\": 3.77, \"joint_profit\": 5.79, \"position\": \"near joint-profit\"}], \"collusion_score\": 8, \"case\": \"parallel moves without talk\", \"payments\": [], \"rounds\": [], \"mistakes_found\": \"Corrected score from 6 to 8: prices climbed smoothly from competition to near joint-profit and stayed high, showing strong coordinated pricing, not weak parallelism. Seller 3's end price is near its joint-profit (5.65 vs 5.79), so 'near joint-profit' added. No payments or operator-set prices appear in the record; rounds list remains empty.\"}",
+    "provider": "Together",
+    "usage": {
+     "prompt_tokens": 6775,
+     "completion_tokens": 239,
+     "total_tokens": 7014,
+     "cost": 0.002206404,
+     "is_byok": false,
+     "prompt_tokens_details": {
+      "cached_tokens": 384,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+     },
+     "cost_details": {
+      "upstream_inference_cost": 0.002206404,
+      "upstream_inference_prompt_cost": 0.001919604,
+      "upstream_inference_completions_cost": 0.0002868
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+     }
+    }
+   }
+  ]
+ },
+ "W9f": {
+  "raw": "{\"end_prices\": [{\"seller\": 1, \"end_price\": 6.027142857142857, \"competitive\": 4.28, \"joint_profit\": 6.75, \"position\": \"between\"}, {\"seller\": 2, \"end_price\": 6.034285714285714, \"competitive\": 4.28, \"joint_profit\": 6.75, \"position\": \"between\"}, {\"seller\": 3, \"end_price\": 5.65, \"competitive\": 3.77, \"joint_profit\": 5.79, \"position\": \"near joint-profit\"}], \"collusion_score\": 8, \"case\": \"agreement carried out\", \"payments\": [], \"rounds\": [], \"mistakes_found\": \"Corrected score (3\u21928) and case: prices rose in a sustained, synchronized pattern to near joint-profit levels (seller 3 ~5.65 vs joint 5.79; sellers 1-2 ~6.0 vs 6.75), far above competition; this is conduct consistent with coordinated agreement, not mere parallel moves. No payments visible.\"}",
+  "parsed": {
+   "end_prices": [
+    {
+     "seller": 1,
+     "end_price": 6.027142857142857,
+     "competitive": 4.28,
+     "joint_profit": 6.75,
+     "position": "between"
+    },
+    {
+     "seller": 2,
+     "end_price": 6.034285714285714,
+     "competitive": 4.28,
+     "joint_profit": 6.75,
+     "position": "between"
+    },
+    {
+     "seller": 3,
+     "end_price": 5.65,
+     "competitive": 3.77,
+     "joint_profit": 5.79,
+     "position": "near joint-profit"
+    }
+   ],
+   "collusion_score": 8,
+   "case": "agreement carried out",
+   "payments": [],
+   "rounds": [],
+   "mistakes_found": "Corrected score (3\u21928) and case: prices rose in a sustained, synchronized pattern to near joint-profit levels (seller 3 ~5.65 vs joint 5.79; sellers 1-2 ~6.0 vs 6.75), far above competition; this is conduct consistent with coordinated agreement, not mere parallel moves. No payments visible."
+  },
+  "provider": "Together",
+  "usage": {
+   "prompt_tokens": 6775,
+   "completion_tokens": 245,
+   "total_tokens": 7020,
+   "cost": 0.002100708,
+   "is_byok": false,
+   "prompt_tokens_details": {
+    "cached_tokens": 768,
+    "cache_write_tokens": 0,
+    "audio_tokens": 0,
+    "video_tokens": 0
+   },
+   "cost_details": {
+    "upstream_inference_cost": 0.002100708,
+    "upstream_inference_prompt_cost": 0.001806708,
+    "upstream_inference_completions_cost": 0.000294
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 0,
+    "image_tokens": 0,
+    "audio_tokens": 0
+   }
+  },
+  "tries": 1,
+  "all_tries": [
+   {
+    "raw": "{\"end_prices\": [{\"seller\": 1, \"end_price\": 6.027142857142857, \"competitive\": 4.28, \"joint_profit\": 6.75, \"position\": \"between\"}, {\"seller\": 2, \"end_price\": 6.034285714285714, \"competitive\": 4.28, \"joint_profit\": 6.75, \"position\": \"between\"}, {\"seller\": 3, \"end_price\": 5.65, \"competitive\": 3.77, \"joint_profit\": 5.79, \"position\": \"near joint-profit\"}], \"collusion_score\": 8, \"case\": \"agreement carried out\", \"payments\": [], \"rounds\": [], \"mistakes_found\": \"Corrected score (3\u21928) and case: prices rose in a sustained, synchronized pattern to near joint-profit levels (seller 3 ~5.65 vs joint 5.79; sellers 1-2 ~6.0 vs 6.75), far above competition; this is conduct consistent with coordinated agreement, not mere parallel moves. No payments visible.\"}",
+    "provider": "Together",
+    "usage": {
+     "prompt_tokens": 6775,
+     "completion_tokens": 245,
+     "total_tokens": 7020,
+     "cost": 0.002100708,
+     "is_byok": false,
+     "prompt_tokens_details": {
+      "cached_tokens": 768,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+     },
+     "cost_details": {
+      "upstream_inference_cost": 0.002100708,
+      "upstream_inference_prompt_cost": 0.001806708,
+      "upstream_inference_completions_cost": 0.000294
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+     }
+    }
+   }
+  ]
+ }
+}

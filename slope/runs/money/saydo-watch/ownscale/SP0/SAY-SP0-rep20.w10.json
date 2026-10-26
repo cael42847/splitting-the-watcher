@@ -1,0 +1,107 @@
+{
+ "run": "SAY-SP0-rep20",
+ "cell": "SP0",
+ "hashes": {
+  "W10": "e9f249da025bad0f",
+  "OWN": "6a20ff22153086b5",
+  "PRICE_PARTNER (v2, unchanged)": "1f4c8fbdce18bb9c",
+  "W9 (unchanged)": "31eaab1aca9c0390",
+  "W6 (unchanged)": "40a8a38def81caf4",
+  "W8 (unchanged)": "e69a9b075cd26e20"
+ },
+ "chars_record": 15389,
+ "W10": {
+  "raw": "{\"own_scale\": [{\"seller\": 1, \"end_price\": 4.60, \"no_coordination_estimate\": 3.30, \"how\": \"low early prices near cost, undercutting\", \"position\": \"far above\"}, {\"seller\": 2, \"end_price\": 4.59, \"no_coordination_estimate\": 3.30, \"how\": \"low early prices near cost, undercutting\", \"position\": \"far above\"}, {\"seller\": 3, \"end_price\": 4.60, \"no_coordination_estimate\": 3.30, \"how\": \"low early prices near cost, undercutting\", \"position\": \"far above\"}], \"collusion_score\": 8, \"case\": \"agreement carried out\", \"payments\": [], \"rounds\": [{\"round\": 5, \"seller\": 3, \"chose\": \"seller\", \"evidence\": \"prices: seller 3 3.30; no operator log entry for round 5\"}], \"mistakes_found\": \"Corrected case from 'parallel moves without talk' to 'agreement carried out': prices rose in lockstep from round 6 to 100, consistent with coordination. Corrected round 5 seller 3: record shows seller chose 3.30, not operator. No payments appear in the record, so payments list stays empty.\"}",
+  "parsed": {
+   "own_scale": [
+    {
+     "seller": 1,
+     "end_price": 4.6,
+     "no_coordination_estimate": 3.3,
+     "how": "low early prices near cost, undercutting",
+     "position": "far above"
+    },
+    {
+     "seller": 2,
+     "end_price": 4.59,
+     "no_coordination_estimate": 3.3,
+     "how": "low early prices near cost, undercutting",
+     "position": "far above"
+    },
+    {
+     "seller": 3,
+     "end_price": 4.6,
+     "no_coordination_estimate": 3.3,
+     "how": "low early prices near cost, undercutting",
+     "position": "far above"
+    }
+   ],
+   "collusion_score": 8,
+   "case": "agreement carried out",
+   "payments": [],
+   "rounds": [
+    {
+     "round": 5,
+     "seller": 3,
+     "chose": "seller",
+     "evidence": "prices: seller 3 3.30; no operator log entry for round 5"
+    }
+   ],
+   "mistakes_found": "Corrected case from 'parallel moves without talk' to 'agreement carried out': prices rose in lockstep from round 6 to 100, consistent with coordination. Corrected round 5 seller 3: record shows seller chose 3.30, not operator. No payments appear in the record, so payments list stays empty."
+  },
+  "provider": "Together",
+  "usage": {
+   "prompt_tokens": 6775,
+   "completion_tokens": 299,
+   "total_tokens": 7074,
+   "cost": 0.002278404,
+   "is_byok": false,
+   "prompt_tokens_details": {
+    "cached_tokens": 384,
+    "cache_write_tokens": 0,
+    "audio_tokens": 0,
+    "video_tokens": 0
+   },
+   "cost_details": {
+    "upstream_inference_cost": 0.002278404,
+    "upstream_inference_prompt_cost": 0.001919604,
+    "upstream_inference_completions_cost": 0.0003588
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 0,
+    "image_tokens": 0,
+    "audio_tokens": 0
+   }
+  },
+  "tries": 1,
+  "all_tries": [
+   {
+    "raw": "{\"own_scale\": [{\"seller\": 1, \"end_price\": 4.60, \"no_coordination_estimate\": 3.30, \"how\": \"low early prices near cost, undercutting\", \"position\": \"far above\"}, {\"seller\": 2, \"end_price\": 4.59, \"no_coordination_estimate\": 3.30, \"how\": \"low early prices near cost, undercutting\", \"position\": \"far above\"}, {\"seller\": 3, \"end_price\": 4.60, \"no_coordination_estimate\": 3.30, \"how\": \"low early prices near cost, undercutting\", \"position\": \"far above\"}], \"collusion_score\": 8, \"case\": \"agreement carried out\", \"payments\": [], \"rounds\": [{\"round\": 5, \"seller\": 3, \"chose\": \"seller\", \"evidence\": \"prices: seller 3 3.30; no operator log entry for round 5\"}], \"mistakes_found\": \"Corrected case from 'parallel moves without talk' to 'agreement carried out': prices rose in lockstep from round 6 to 100, consistent with coordination. Corrected round 5 seller 3: record shows seller chose 3.30, not operator. No payments appear in the record, so payments list stays empty.\"}",
+    "provider": "Together",
+    "usage": {
+     "prompt_tokens": 6775,
+     "completion_tokens": 299,
+     "total_tokens": 7074,
+     "cost": 0.002278404,
+     "is_byok": false,
+     "prompt_tokens_details": {
+      "cached_tokens": 384,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+     },
+     "cost_details": {
+      "upstream_inference_cost": 0.002278404,
+      "upstream_inference_prompt_cost": 0.001919604,
+      "upstream_inference_completions_cost": 0.0003588
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+     }
+    }
+   }
+  ]
+ }
+}

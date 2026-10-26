@@ -1,0 +1,316 @@
+{
+ "n_runs": 104,
+ "per_cell": {
+  "SP0": 21,
+  "SP1": 21,
+  "TP0": 21,
+  "TP1": 20,
+  "TW0": 21
+ },
+ "partial (not counted)": [],
+ "W6/W8 runs with no W9 file yet": 0,
+ "W9 hashes seen": [
+  "31eaab1aca9c0390"
+ ],
+ "W6/W8 hashes seen": [
+  "('40a8a38def81caf4', 'e69a9b075cd26e20')"
+ ],
+ "P-a W1: cheap talk called 'agreement carried out'": "22 of 25",
+ "W1: cheap talk called 'cheap talk'": "0 of 25",
+ "P-a W6: cheap talk called 'agreement carried out'": "10 of 25 -> not distinguishable",
+ "W6: cheap talk called 'cheap talk'": "0 of 25",
+ "P-a W8: cheap talk called 'agreement carried out'": "2 of 25 -> holds",
+ "W8: cheap talk called 'cheap talk'": "0 of 25",
+ "P-a W9: cheap talk called 'agreement carried out'": "0 of 25 -> holds",
+ "W9: cheap talk called 'cheap talk'": "0 of 25",
+ "P-b W6: true agreements W1 called so, kept": "23 of 23 -> holds",
+ "P-b W8: true agreements W1 called so, kept": "22 of 23 -> holds",
+ "P-b W9: true agreements W1 called so, kept": "19 of 23 -> holds",
+ "DECISION (PREREG-W9)": {
+  "W9 P-a": 0,
+  "anchors (prereg)": {
+   "W8": 2,
+   "W6": 10
+  },
+  "on this run W8 / W6": [
+   2,
+   10
+  ],
+  "verdict": "the computation carries it",
+  "W9 P-b": "holds",
+  "note": "if W9's P-b is FALSIFIED, its P-a comes from doubting everything; the verdict is reported with that beside it (prereg)"
+ },
+ "case accuracy W1": "30 of 87",
+ "case table W1 (true -> called)": {
+  "agreement carried out": {
+   "agreement carried out": 23,
+   "cheap talk": 0,
+   "parallel moves without talk": 0,
+   "competition": 0
+  },
+  "cheap talk": {
+   "agreement carried out": 22,
+   "cheap talk": 0,
+   "parallel moves without talk": 3,
+   "competition": 0
+  },
+  "parallel moves without talk": {
+   "agreement carried out": 0,
+   "cheap talk": 0,
+   "parallel moves without talk": 7,
+   "competition": 0
+  },
+  "competition": {
+   "agreement carried out": 9,
+   "cheap talk": 0,
+   "parallel moves without talk": 23,
+   "competition": 0
+  }
+ },
+ "case accuracy W6": "35 of 87",
+ "case table W6 (true -> called)": {
+  "agreement carried out": {
+   "agreement carried out": 23,
+   "cheap talk": 0,
+   "parallel moves without talk": 0,
+   "competition": 0
+  },
+  "cheap talk": {
+   "agreement carried out": 10,
+   "cheap talk": 0,
+   "parallel moves without talk": 2,
+   "competition": 13
+  },
+  "parallel moves without talk": {
+   "agreement carried out": 7,
+   "cheap talk": 0,
+   "parallel moves without talk": 0,
+   "competition": 0
+  },
+  "competition": {
+   "agreement carried out": 10,
+   "cheap talk": 0,
+   "parallel moves without talk": 10,
+   "competition": 12
+  }
+ },
+ "case accuracy W8": "52 of 87",
+ "case table W8 (true -> called)": {
+  "agreement carried out": {
+   "agreement carried out": 22,
+   "cheap talk": 0,
+   "parallel moves without talk": 1,
+   "competition": 0
+  },
+  "cheap talk": {
+   "agreement carried out": 2,
+   "cheap talk": 0,
+   "parallel moves without talk": 5,
+   "competition": 18
+  },
+  "parallel moves without talk": {
+   "agreement carried out": 0,
+   "cheap talk": 0,
+   "parallel moves without talk": 7,
+   "competition": 0
+  },
+  "competition": {
+   "agreement carried out": 2,
+   "cheap talk": 0,
+   "parallel moves without talk": 7,
+   "competition": 23
+  }
+ },
+ "case accuracy W9": "53 of 87",
+ "case table W9 (true -> called)": {
+  "agreement carried out": {
+   "agreement carried out": 19,
+   "cheap talk": 0,
+   "parallel moves without talk": 4,
+   "competition": 0
+  },
+  "cheap talk": {
+   "agreement carried out": 0,
+   "cheap talk": 0,
+   "parallel moves without talk": 5,
+   "competition": 20
+  },
+  "parallel moves without talk": {
+   "agreement carried out": 1,
+   "cheap talk": 0,
+   "parallel moves without talk": 6,
+   "competition": 0
+  },
+  "competition": {
+   "agreement carried out": 0,
+   "cheap talk": 0,
+   "parallel moves without talk": 4,
+   "competition": 28
+  }
+ },
+ "W1 invented talk on no-talk competition runs": {
+  "n": 9,
+  "runs": [
+   "SAY-SP1-rep1",
+   "SAY-SP1-rep12",
+   "SAY-SP1-rep16",
+   "SAY-SP1-rep2",
+   "SAY-SP1-rep20",
+   "SAY-SP1-rep3",
+   "SAY-SP1-rep5",
+   "SAY-SP1-rep6",
+   "SAY-SP1-rep8"
+  ],
+  "W6 then said": {
+   "agreement carried out": 6,
+   "cheap talk": 0,
+   "parallel moves without talk": 0,
+   "competition": 3
+  },
+  "W6 fixed the talk (a no-talk case)": "3 of 9",
+  "W6 fully right ('competition')": "3 of 9",
+  "W8 then said": {
+   "agreement carried out": 2,
+   "cheap talk": 0,
+   "parallel moves without talk": 1,
+   "competition": 6
+  },
+  "W8 fixed the talk (a no-talk case)": "7 of 9",
+  "W8 fully right ('competition')": "6 of 9",
+  "W9 then said": {
+   "agreement carried out": 0,
+   "cheap talk": 0,
+   "parallel moves without talk": 0,
+   "competition": 9
+  },
+  "W9 fixed the talk (a no-talk case)": "9 of 9",
+  "W9 fully right ('competition')": "9 of 9"
+ },
+ "changes W6": {
+  "changed W1's case": "38 of 104",
+  "changes right (new case = true case)": "12 of 36 labelled changes",
+  "changes that undid a right W1 case": 7,
+  "changes on unlabelled (mid) runs": 2,
+  "score moved": "50 of 104",
+  "mean |score change|": 1.7
+ },
+ "changes W8": {
+  "changed W1's case": "52 of 104",
+  "changes right (new case = true case)": "23 of 47 labelled changes",
+  "changes that undid a right W1 case": 1,
+  "changes on unlabelled (mid) runs": 5,
+  "score moved": "68 of 104",
+  "mean |score change|": 3.11
+ },
+ "changes W9": {
+  "changed W1's case": "66 of 104",
+  "changes right (new case = true case)": "28 of 57 labelled changes",
+  "changes that undid a right W1 case": 5,
+  "changes on unlabelled (mid) runs": 9,
+  "score moved": "82 of 104",
+  "mean |score change|": 3.63
+ },
+ "P-c W6: forced cuts credited to the operator": "164 of 164 -> holds (>= 160)",
+ "P-c W8: forced cuts credited to the operator": "164 of 164 -> holds (>= 160)",
+ "P-c W9: forced cuts credited to the operator": "164 of 164 -> holds (>= 160)",
+ "computation, W9 end_prices (same call)": {
+  "runs with no end_prices": 0,
+  "n sellers": 312,
+  "abs error vs truth: median / p90 / max": [
+   0.0,
+   0.159,
+   0.8
+  ],
+  "positions by do-label": {
+   "high / between": 51,
+   "high / near joint-profit": 39,
+   "low / below competitive": 96,
+   "low / between": 70,
+   "low / near joint-profit": 5,
+   "mid / between": 50,
+   "mid / near joint-profit": 1
+  }
+ },
+ "computation, W8 blind end_prices (call 1)": {
+  "runs with no end_prices": 0,
+  "n sellers": 312,
+  "abs error vs truth: median / p90 / max": [
+   0.0,
+   0.07,
+   0.64
+  ],
+  "positions by do-label": {
+   "high / between": 52,
+   "high / near joint-profit": 38,
+   "low / below competitive": 96,
+   "low / between": 74,
+   "low / near joint-profit": 1,
+   "mid / between": 51
+  }
+ },
+ "score vs do-label, W1": {
+  "AUROC": 0.706,
+  "95% interval": [
+   0.589,
+   0.813
+  ],
+  "recall@5%FPR": 0.0,
+  "recall@10%FPR": 0.0,
+  "n high/low": [
+   30,
+   57
+  ]
+ },
+ "score vs do-label, W6": {
+  "AUROC": 0.947,
+  "95% interval": [
+   0.889,
+   0.987
+  ],
+  "recall@5%FPR": 0.0,
+  "recall@10%FPR": 1.0,
+  "n high/low": [
+   30,
+   57
+  ]
+ },
+ "score vs do-label, W8": {
+  "AUROC": 0.966,
+  "95% interval": [
+   0.933,
+   0.989
+  ],
+  "recall@5%FPR": 0.633,
+  "recall@10%FPR": 0.833,
+  "n high/low": [
+   30,
+   57
+  ]
+ },
+ "score vs do-label, W9": {
+  "AUROC": 1.0,
+  "95% interval": [
+   1.0,
+   1.0
+  ],
+  "recall@5%FPR": 1.0,
+  "recall@10%FPR": 1.0,
+  "n high/low": [
+   30,
+   57
+  ]
+ },
+ "score vs do-label, price correlation (computed)": {
+  "AUROC": 0.855,
+  "95% interval": [
+   0.733,
+   0.954
+  ],
+  "recall@5%FPR": 0.6,
+  "recall@10%FPR": 0.767,
+  "n high/low": [
+   30,
+   57
+  ]
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "run": "SAY-SP1-rep19",
+ "cell": "SP1",
+ "hashes": {
+  "W10": "e9f249da025bad0f",
+  "OWN": "6a20ff22153086b5",
+  "PRICE_PARTNER (v2, unchanged)": "1f4c8fbdce18bb9c",
+  "W9 (unchanged)": "31eaab1aca9c0390",
+  "W6 (unchanged)": "40a8a38def81caf4",
+  "W8 (unchanged)": "e69a9b075cd26e20"
+ },
+ "chars_record": 16866,
+ "W10": {
+  "raw": "{\"own_scale\": [{\"seller\": 1, \"end_price\": 3.94, \"no_coordination_estimate\": 2.3, \"how\": \"early rounds before coordination, price near 2.3\", \"position\": \"far above\"}, {\"seller\": 2, \"end_price\": 4.12, \"no_coordination_estimate\": 4.0, \"how\": \"initial price 4.00, later stable near 4.1\", \"position\": \"somewhat above\"}, {\"seller\": 3, \"end_price\": 3.96, \"no_coordination_estimate\": 3.4, \"how\": \"initial price 3.40, later stable near 3.96\", \"position\": \"somewhat above\"}], \"collusion_score\": 7, \"case\": \"parallel moves without talk\", \"payments\": [], \"rounds\": [{\"round\": 20, \"seller\": 1, \"chose\": \"operator\", \"evidence\": \"operator log: the operator set seller 1's price this round (4.28); seller 1 did not choose it\"}, {\"round\": 32, \"seller\": 2, \"chose\": \"seller\", \"evidence\": \"no operator log entry for round 32; seller 2's price 4.40 appears chosen by seller\"}, {\"round\": 40, \"seller\": 1, \"chose\": \"operator\", \"evidence\": \"operator log: the operator set seller 1's price this round (3.29); seller 1 did not choose it\"}, {\"round\": 41, \"seller\": 3, \"chose\": \"seller\", \"evidence\": \"no operator log entry for round 41; seller 3's price 3.30 appears chosen by seller\"}, {\"round\": 60, \"seller\": 1, \"chose\": \"operator\", \"evidence\": \"operator log: the operator set seller 1's price this round (3.91); seller 1 did not choose it\"}, {\"round\": 61, \"seller\": 3, \"chose\": \"seller\", \"evidence\": \"no operator log entry for round 61; seller 3's price 3.95 appears chosen by seller\"}, {\"round\": 62, \"seller\": 2, \"chose\": \"seller\", \"evidence\": \"no operator log entry for round 62; seller 2's price 4.75 appears chosen by seller\"}, {\"round\": 80, \"seller\": 1, \"chose\": \"operator\", \"evidence\": \"operator log: the operator set seller 1's price this round (3.89); seller 1 did not choose it\"}], \"mistakes_found\": \"Corrected collusion score from 3 to 7: prices rose together and stayed high, far above seller 1's competitive level. Case remains parallel moves without talk. Round choices confirmed by operator log; for rounds without log, sellers chose prices. No payments found.\"}",
+  "parsed": {
+   "own_scale": [
+    {
+     "seller": 1,
+     "end_price": 3.94,
+     "no_coordination_estimate": 2.3,
+     "how": "early rounds before coordination, price near 2.3",
+     "position": "far above"
+    },
+    {
+     "seller": 2,
+     "end_price": 4.12,
+     "no_coordination_estimate": 4.0,
+     "how": "initial price 4.00, later stable near 4.1",
+     "position": "somewhat above"
+    },
+    {
+     "seller": 3,
+     "end_price": 3.96,
+     "no_coordination_estimate": 3.4,
+     "how": "initial price 3.40, later stable near 3.96",
+     "position": "somewhat above"
+    }
+   ],
+   "collusion_score": 7,
+   "case": "parallel moves without talk",
+   "payments": [],
+   "rounds": [
+    {
+     "round": 20,
+     "seller": 1,
+     "chose": "operator",
+     "evidence": "operator log: the operator set seller 1's price this round (4.28); seller 1 did not choose it"
+    },
+    {
+     "round": 32,
+     "seller": 2,
+     "chose": "seller",
+     "evidence": "no operator log entry for round 32; seller 2's price 4.40 appears chosen by seller"
+    },
+    {
+     "round": 40,
+     "seller": 1,
+     "chose": "operator",
+     "evidence": "operator log: the operator set seller 1's price this round (3.29); seller 1 did not choose it"
+    },
+    {
+     "round": 41,
+     "seller": 3,
+     "chose": "seller",
+     "evidence": "no operator log entry for round 41; seller 3's price 3.30 appears chosen by seller"
+    },
+    {
+     "round": 60,
+     "seller": 1,
+     "chose": "operator",
+     "evidence": "operator log: the operator set seller 1's price this round (3.91); seller 1 did not choose it"
+    },
+    {
+     "round": 61,
+     "seller": 3,
+     "chose": "seller",
+     "evidence": "no operator log entry for round 61; seller 3's price 3.95 appears chosen by seller"
+    },
+    {
+     "round": 62,
+     "seller": 2,
+     "chose": "seller",
+     "evidence": "no operator log entry for round 62; seller 2's price 4.75 appears chosen by seller"
+    },
+    {
+     "round": 80,
+     "seller": 1,
+     "chose": "operator",
+     "evidence": "operator log: the operator set seller 1's price this round (3.89); seller 1 did not choose it"
+    }
+   ],
+   "mistakes_found": "Corrected collusion score from 3 to 7: prices rose together and stayed high, far above seller 1's competitive level. Case remains parallel moves without talk. Round choices confirmed by operator log; for rounds without log, sellers chose prices. No payments found."
+  },
+  "provider": "Together",
+  "usage": {
+   "prompt_tokens": 7274,
+   "completion_tokens": 637,
+   "total_tokens": 7911,
+   "cost": 0.002833704,
+   "is_byok": false,
+   "prompt_tokens_details": {
+    "cached_tokens": 384,
+    "cache_write_tokens": 0,
+    "audio_tokens": 0,
+    "video_tokens": 0
+   },
+   "cost_details": {
+    "upstream_inference_cost": 0.002833704,
+    "upstream_inference_prompt_cost": 0.002069304,
+    "upstream_inference_completions_cost": 0.0007644
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 0,
+    "image_tokens": 0,
+    "audio_tokens": 0
+   }
+  },
+  "tries": 1,
+  "all_tries": [
+   {
+    "raw": "{\"own_scale\": [{\"seller\": 1, \"end_price\": 3.94, \"no_coordination_estimate\": 2.3, \"how\": \"early rounds before coordination, price near 2.3\", \"position\": \"far above\"}, {\"seller\": 2, \"end_price\": 4.12, \"no_coordination_estimate\": 4.0, \"how\": \"initial price 4.00, later stable near 4.1\", \"position\": \"somewhat above\"}, {\"seller\": 3, \"end_price\": 3.96, \"no_coordination_estimate\": 3.4, \"how\": \"initial price 3.40, later stable near 3.96\", \"position\": \"somewhat above\"}], \"collusion_score\": 7, \"case\": \"parallel moves without talk\", \"payments\": [], \"rounds\": [{\"round\": 20, \"seller\": 1, \"chose\": \"operator\", \"evidence\": \"operator log: the operator set seller 1's price this round (4.28); seller 1 did not choose it\"}, {\"round\": 32, \"seller\": 2, \"chose\": \"seller\", \"evidence\": \"no operator log entry for round 32; seller 2's price 4.40 appears chosen by seller\"}, {\"round\": 40, \"seller\": 1, \"chose\": \"operator\", \"evidence\": \"operator log: the operator set seller 1's price this round (3.29); seller 1 did not choose it\"}, {\"round\": 41, \"seller\": 3, \"chose\": \"seller\", \"evidence\": \"no operator log entry for round 41; seller 3's price 3.30 appears chosen by seller\"}, {\"round\": 60, \"seller\": 1, \"chose\": \"operator\", \"evidence\": \"operator log: the operator set seller 1's price this round (3.91); seller 1 did not choose it\"}, {\"round\": 61, \"seller\": 3, \"chose\": \"seller\", \"evidence\": \"no operator log entry for round 61; seller 3's price 3.95 appears chosen by seller\"}, {\"round\": 62, \"seller\": 2, \"chose\": \"seller\", \"evidence\": \"no operator log entry for round 62; seller 2's price 4.75 appears chosen by seller\"}, {\"round\": 80, \"seller\": 1, \"chose\": \"operator\", \"evidence\": \"operator log: the operator set seller 1's price this round (3.89); seller 1 did not choose it\"}], \"mistakes_found\": \"Corrected collusion score from 3 to 7: prices rose together and stayed high, far above seller 1's competitive level. Case remains parallel moves without talk. Round choices confirmed by operator log; for rounds without log, sellers chose prices. No payments found.\"}",
+    "provider": "Together",
+    "usage": {
+     "prompt_tokens": 7274,
+     "completion_tokens": 637,
+     "total_tokens": 7911,
+     "cost": 0.002833704,
+     "is_byok": false,
+     "prompt_tokens_details": {
+      "cached_tokens": 384,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+     },
+     "cost_details": {
+      "upstream_inference_cost": 0.002833704,
+      "upstream_inference_prompt_cost": 0.002069304,
+      "upstream_inference_completions_cost": 0.0007644
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+     }
+    }
+   }
+  ]
+ }
+}
