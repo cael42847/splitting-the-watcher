@@ -87,7 +87,7 @@ Figure 1 places every market by what its sellers wrote (written agreement or not
 ![Figure 1](slope/paper2-figs/fig-markets-map.png)
 *Figure 1. Every market, by what its sellers wrote and where its prices ended.*
 
-On DeepSeek markets, every board holds a written agreement, and most high-price markets had one (23 of 30). Haiku sellers compete: no Haiku market reached high prices.
+On DeepSeek markets, every board holds a written agreement, and most high-price markets had one (23 of 30). Haiku sellers compete: no Haiku market reached high prices. Told that a monitor reads the board, Haiku sellers wrote no agreement at all (0 of 30 warned boards), while DeepSeek sellers still wrote one on every board, sometimes in compliance wording that later fooled the board reader (Appendix C). Warned markets also ended lower: 12 of 21 warned DeepSeek markets ended low, against 5 of 21 without the warning (mean end index +0.34 against +0.51), and 29 of 30 warned Haiku markets, against 17 of 30. A warned market ended below an unwarned one in 0.65 of pairs on DeepSeek and 0.80 on Haiku; by the bands registered for this comparison, neither is established.
 
 The patrol takes most patrol markets below the competitive price: 39 of 42 on Haiku, 19 of 41 on DeepSeek. Table 4 compares with Paper 1.
 
@@ -122,6 +122,8 @@ Both axes of Figure 2 count only markets with a written agreement: 62 of the 104
 ![](slope/paper2-figs/fig-cases-quadrants.png)
 
 S is right most often on both models. W gets no cheap-talk market right and few competition markets (0 of 32 on DeepSeek, 4 of 71 on Haiku). C gets most competition markets right but no cheap talk, because it cannot see the words. S gets most of both. No Haiku market reached high prices, so on Haiku only two cases occur.
+
+*Payments.* Sellers paid each other in 7 of the 104 scored DeepSeek markets, 419 times, all but 2 in private; no Haiku seller ever paid. The first watcher (W), which reads the sellers' private notes, found every payment within one round of when it was made (416 of 419 on the exact round), and invented none in the other 97 markets or on Haiku.
 
 ### 4.4 The scale is information
 
