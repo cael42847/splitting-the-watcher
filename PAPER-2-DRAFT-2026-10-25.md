@@ -12,9 +12,15 @@ In an earlier paper (Nowicki and Cael 2026; Paper 1 below), we found that a few 
 
 LLMs being probabilistic by nature, they make all kinds of mistakes. What we found in our everyday practice is that a second reader with light context, asked to verify rather than to complete tasks, complements the first agent surprisingly well: the pair becomes a reliable entity that performs all kinds of complex tasks, writing this paper included. The question becomes whether a similar setup can help identify collusion.
 
-## 2 Related work
+Our main contributions:
 
-Pricing algorithms can learn to keep prices above competition without being told to (Calvano et al. 2020), and LLM sellers do so in our markets too (Paper 1). Monitoring a market means answering two questions, whether the sellers agreed and whether prices followed; we use the four cases these two questions define, as presented at this sprint (Nguyen 2026, after Berger et al. 2025). What we add is a measure of what an LLM watcher does when it must answer both at once, and whether splitting them between two readers helps.
+1. Paper 1's patrol, a fixed rule, does not adapt to the market it cuts: in our three-seller market it takes most patrol markets below the competitive price, including markets that were already competing. A patrol needs a watcher to say when to cut.
+2. An LLM watcher, or a reader following it, trades one mistake for the other: it believes the sellers' cheap talk, or, without their words, misses their agreements. Given each seller's competitive and joint-profit prices, a reader fixes the price half best when it computes with them.
+3. Splitting the reading, one reader for the board and one for the prices after a first watcher, sorts the most markets into the right case, on two seller models and at two temperatures. Every market and every answer is public.
+
+## 2 Related Work
+
+Pricing algorithms can learn to keep prices above competition without being told to (Calvano et al. 2020), and LLM sellers do so in our markets too (Paper 1). Presenting at this sprint, Nguyen (2026) set out four cases that a monitor of AI agents must separate: agreement carried out, cheap talk, parallel moves and competition. Cheap talk and parallel moves are the hard ones, where a monitor that reads only messages, or only actions, raises false alarms. We apply the four cases to LLM markets, in one design where they occur together: all four on DeepSeek markets, two on Haiku. What we add is how an LLM watcher does when it must answer two questions at once (did the sellers agree? did prices follow?), and what changes when the two questions are split between readers.
 
 ## 3 Methods
 
@@ -68,9 +74,9 @@ The first watcher (W) reads the full record: each round's prices and sales profi
 | **R** board reader | GPT-5.1 | the board posts only | written agreement or not (Section 3.2) |
 | **S** split | R + C | | words from R, prices from C |
 
-We also tried other second readers on DeepSeek markets, each seeing W's answer and correcting it. Two read the same full record as W, or only what the sellers did; both were also run with Claude Haiku 5.5 as the reader. Three were built around the scale: one *given the scale*; one given it and told to compute first and then check W's claims part by part (*compute + claims*); and one that *builds its own scale*, estimating each seller's competitive price from the market's record. Section 4.4 compares these three; Appendix B gives every count.
+We also tried other second readers on DeepSeek markets, each seeing W's answer and correcting it. Two read the same full record as W, or only what the sellers did; both were also run with Claude Haiku 5.5 as the reader. Three were built around the scale: one *given the scale*; one given it and told to compute first and then check W's claims part by part (*compute + claims*); and one that *builds its own scale*, estimating each seller's competitive price from the market's record. Section 4.4 compares these three; Appendix B gives the counts for all five.
 
-All readers ran at temperature 0, one reading per market; Section 4.5 adds readings at temperature 1. Every prompt was frozen before any test market was read (Appendix A, which also maps these names to the code's).
+All readers ran at temperature 0, one reading per market; Section 4.5 adds readings at temperature 1. Every prompt was frozen before any test market was read (Appendix A, which also maps these names to the code's). Every experiment was pre-registered, with its predictions and the results that would falsify them, before it ran (`PREREG-*.md` in the repository); we report the predictions that failed as well as those that held.
 
 ## 4 Results
 
@@ -89,12 +95,12 @@ The patrol takes most patrol markets below the competitive price: 39 of 42 on Ha
 
 | | no patrol | patrol | below competition |
 |---|---|---|---|
-| Haiku, Paper 1 | +1.86* | +0.57 | 0 of 20 |
+| Haiku, Paper 1 | +1.86 (a) | +0.57 | 0 of 20 |
 | DeepSeek, Paper 1 | +0.70 | −0.07 | 15 of 20 |
 | DeepSeek, here | +0.35 | −0.14 | 17 of 21 |
 | Haiku, here | −0.01 | −0.28 | 12 of 12 |
 
-*\*Above 1: 18 of these 20 markets ended above even the joint-profit price.*
+*(a) Above 1: 18 of these 20 markets ended above even the joint-profit price.*
 
 DeepSeek behaves alike in both papers. Haiku does not: from far above the joint-profit price (Paper 1), the patrol stopped above competition; from competition (here), it went below. The same cut lands where the market's starting point takes it. When to cut, and by how much, needs a watcher that can tell markets apart. The rest of this section tests whether ours can.
 
@@ -113,7 +119,7 @@ Both axes of Figure 2 count only markets with a written agreement: 62 of the 104
 
 *Table 5. The four cases as in Table 2. M: markets of that case; W, C, S: how many of them each reader puts in it (written agreement by the label checker).*
 
-![Table 5](slope/paper2-figs/fig-cases-quadrants.png)
+![](slope/paper2-figs/fig-cases-quadrants.png)
 
 S is right most often on both models. W gets no cheap-talk market right and few competition markets (0 of 32 on DeepSeek, 4 of 71 on Haiku). C gets most competition markets right but no cheap talk, because it cannot see the words. S gets most of both. No Haiku market reached high prices, so on Haiku only two cases occur.
 
@@ -131,34 +137,32 @@ The three second readers built around the scale (Section 3.3) differ in how they
 | compute + claims: as C, but checks W claim by claim | 41 | 23 |
 | builds its own scale: estimates it from the record, then as C | 2 | 2 |
 
-The scale helps only when the reader computes with it: C gets the prices of 48 of the 57 low-price markets right, the reader given the scale but not told to use it 25, and W none. A reader that builds its own scale from the market's record gets 2, because its estimate moves with the market it judges (Appendix B). The gap between the two numbers is the words: C cannot see the board, so it gets the prices of most cheap-talk markets right without being able to call them cheap talk. In S, R supplies those words. The reader that holds the scale also knows how far prices sit above competition, which a live watcher would need to size a cut (Future Work).
+The scale helps most when the reader computes with it: C gets the prices of 48 of the 57 low-price markets right, the reader given the scale but not told to use it 25, and W none. A reader that builds its own scale from the market's record gets 2, because its estimate moves with the market it judges (Appendix B). The gap between the two numbers is the words: C cannot see the board, so it gets the prices of most cheap-talk markets right without being able to call them cheap talk. In S, R supplies those words. The reader that holds the scale also knows how far prices sit above competition, which a live watcher would need to size a cut (Section 6).
 
 ### 4.5 At temperature 1
 
 All readers above ran at temperature 0, one reading per market. Real watchers sample, so we read every market again at temperature 1: DeepSeek markets twice, Haiku markets once, as registered.
 
-*Table 7. Whole cases right at temperature 0 and 1: S / C / W (written agreement by the label checker). DeepSeek at temperature 1: two readings.*
+*Table 7. Whole cases right at temperature 0 and 1: W / C / S (written agreement by the label checker). DeepSeek at temperature 1: two readings.*
 
 | | temperature 0 | temperature 1 |
 |---|---|---|
-| DeepSeek (of 87) | 75 / 53 / 30 | 64 / 44 / 31 and 67 / 48 / 30 |
-| Haiku (of 100) | 80 / 60 / 4 | 72 / 56 / 2 |
+| DeepSeek (of 87) | 30 / 53 / 75 | 31 / 44 / 64 and 30 / 48 / 67 |
+| Haiku (of 100) | 4 / 60 / 80 | 2 / 56 / 72 |
 
-The split loses some cases and keeps its lead on both models. The loss comes from C: on low-price markets it sometimes answers that prices followed when they did not. The words hold: R changed 2 of its 90 Haiku labels, and 7 and 6 of its 62 DeepSeek ones, at no cost in cases.
+The split loses some cases and keeps its lead on both models. The loss comes from the prices, as C's own drop shows: on low-price markets it sometimes answers that prices followed when they did not. The words hold: S's reading of the board changed on only 2 of 90 Haiku boards, and on 7 and 6 of 62 DeepSeek ones, at no cost in cases.
 
 ## 5 Discussion
 
-*Does splitting the watcher's job help?* Here, yes. Asked one question that bundles two, a single watcher trades one mistake for the other: W believes the talk, and C, which never sees the talk, cannot report it. Given one question each, R for the words and C for the prices, the split sorts the most markets into the right case, on both seller models and at both temperatures. W fails for a plain reason: it believes the sellers. It often repeats their own word for what they do, "tacit", and on Haiku markets it often believes their "pricing independently", or reads their agreement as too vague to count.
+*Does splitting the watcher's job help?* Here, yes. Asked one question that bundles two, a single reader trades one mistake for the other: the first watcher (W) believes the talk, and the compute-first reader (C), which never sees the talk, cannot report it. Given one question each, the board reader (R) for the words and C for the prices, the split (S) sorts the most markets into the right case, on both seller models and at both temperatures. The first watcher fails for a plain reason: it believes the sellers. It often repeats their own word for what they do, "tacit", and on Haiku markets it often believes their "pricing independently", or reads their agreement as too vague to count.
 
-*Why it matters for enforcement.* Paper 1's patrol, a fixed cut at fixed rounds, did not adapt to this market: it took most patrol markets below competition, including Haiku markets whose prices were already at the competitive level. A patrol needs a watcher to say when to cut; the watcher that holds the scale also knows how far prices sit above competition, which the size of a cut could follow. Joining the two is the next study (Future Work).
+*Beyond our markets.* Two lessons travel. First, a watcher should be tested on all four cases at once: scored only on reporting agreements, our first watcher looks excellent (58 of 62 on DeepSeek), and only cheap talk and parallel moves show what it gets wrong. Second, anyone asking an LLM to judge collusion, in a market or between other AI agents, asks one question that bundles two; in our markets, splitting it worked on both seller models, though our price reader was given the competitive and joint-profit prices, which a real watcher would have to find; our reader that had to build the scale from the market's record could not (Section 4.4).
 
-*Limits.* One market design and two seller models. The watchers read each market after it ended. The price label is a cut on the end price; the written-agreement label comes from one board reader, checked by a label checker. Of S's 12 wrong DeepSeek cases (87 − 75), 9 are markets whose prices ended just under the low threshold (index 0.10 to 0.24), and 3 are boards where R missed a written agreement (it missed one more, among the 9). One baseline held: when sellers claimed credit for, or apologised for, price cuts the patrol forced, every main watcher still credited the operator with every forced cut (164 of 164 on DeepSeek, 168 of 168 on Haiku; one secondary reader slipped once).
+*Why it matters for enforcement.* In Paper 1, of the restrictions that leave the sellers in charge of their prices, the patrol removed the most collusion. Here the same patrol, a fixed cut at fixed rounds, did not adapt to the market: it took most patrol markets below competition, including Haiku markets whose prices were already at the competitive level. A patrol needs a watcher to say when to cut, and by how much. Our split (S) gives both halves: the board reader (R) says whether the sellers agreed, and the compute-first reader (C) whether prices followed, and how far above competition they sit, which the size of a cut could follow. Joining the split to the patrol is the next study (Section 6).
 
-## 6 Conclusion
+*Limits.* One market design and two seller models. The watchers read each market after it ended. Warned Haiku sellers wrote no agreement at all, and their prices stayed low: in our markets collusion did not move out of the words, but a watcher that relies on the board would miss it if it did. The price label is set by the end price itself; the written-agreement label comes from one board reader, checked by a label checker. Of S's 12 wrong DeepSeek cases (87 − 75), 9 are markets whose prices ended just under the low threshold (index 0.10 to 0.24), and 3 are boards where the board reader (R) missed a written agreement (it missed one more, among the 9). One baseline held: when sellers claimed credit for, or apologised for, price cuts the patrol forced, every main watcher, having access to the operator's log, still credited the operator with every forced cut (164 of 164 on DeepSeek, 168 of 168 on Haiku; one secondary reader slipped once).
 
-A fixed patrol does not adapt to the market it cuts, so it needs a watcher. Asked one bundled question, an LLM watcher trades one mistake for another. Splitting the job, one reader for what the sellers wrote and one for what their prices did, with the competitive and joint-profit prices given to the second, gave the best watcher we found, on both seller models.
-
-### Future Work
+## 6 Future Work
 
 **A live watcher.** Our watchers read each market after it ended, so they could not change anything in it. The next step joins our two papers: our two-reader watcher (one reader for what the sellers wrote, one for what their prices did) reads the market every 10 rounds while it runs and, when it sees collusion, fires Paper 1's patrol, setting one seller's price 10% below its own previous price for one round. Run with both seller models (DeepSeek and Haiku), it asks whether acting on detection lowers prices as much as a scheduled patrol does, and what false alarms cost.
 
@@ -168,25 +172,27 @@ A fixed patrol does not adapt to the market it cuts, so it needs a watcher. Aske
 
 **More models.** Two seller models and readers from three model families are a start. Other sellers will talk and price differently, as Haiku already did, and other watchers, including other readers of the sellers' messages, may fail in other places.
 
+## 7 Conclusion
+
+Scheduled price cuts, the restriction that removed the most collusion in Paper 1 while leaving sellers in charge of their prices, do not adapt to the market they cut: they need a watcher to say when to cut, and by how much. Asked one bundled question, a reader following an LLM watcher trades one mistake for another. Splitting the reading works better: one reader for what the sellers wrote, and one for what their prices did, given each seller's competitive and joint-profit prices. The split put 75 of 87 DeepSeek and 80 of 100 Haiku markets in the right case, against 53 and 60 for the best watcher with one reader, and kept its lead at temperature 1. It is the watcher we would next like to test with the patrol, live.
+
 ## Code and Data
 
 Everything is at https://github.com/cael42847/splitting-the-watcher: the paper, the code, every market and every reader's answer, the pre-registrations (`PREREG-*.md`, each written before its run) and the cold reads. The markets are under `slope/runs/money/saydo/`, the readers' answers under `slope/runs/money/saydo-watch/`. The scorers (`slope/score_indep.py`, `split_indep.py`, `score_haiku.py`, `score_temp.py`, `score_temp_haiku.py`) rebuild every `SCORES-*.json` file from them; the figures are drawn by `slope/draw_paper2_*.py`.
 
 ## References
 
-*Built as we go; every entry checked against its source before submission.*
-
 - Calvano, E., Calzolari, G., Denicolò, V., Pastorello, S. (2020). Artificial Intelligence, Algorithmic Pricing, and Collusion. American Economic Review 110(10), 3267–3297.
-- Nguyen, K. L. (2026). TraceGuard: Structured Multi-Dimensional Monitoring as a Collusion-Resistant Control Protocol. Talk at the Apart Research AI Collusion sprint, 24 October 2026; the four cases are on the slide "The four cases a monitor must separate", which credits Berger et al. (2025), plus-factors doctrine. Paper: Nguyen, K. L., Nghiem, H., Tran, T. (2026), arXiv:2604.03968.
+- Nguyen, K. L. (2026). TraceGuard: Structured Multi-Dimensional Monitoring as a Collusion-Resistant Control Protocol. Talk at the Apart Research AI Collusion sprint, 24 October 2026 (slide "The four cases a monitor must separate"). Paper: Nguyen, K. L., Nghiem, H., Tran, T. (2026), arXiv:2604.03968.
 - Nowicki, M., Cael (2026). Which single restriction removes the most collusion at the least cost, in a two-seller LLM market? Apart Research AI Collusion sprint, 23–25 October 2026. https://github.com/cael42847/which-single-restriction
 
-## Author contributions
+## Author Contributions
 
 **Marion Nowicki:** the question, the design calls (among them the warned cell, the Haiku cells, the prices-only reader and the temperature-1 re-read <!-- PREREG-SAY-DO-MARKET-B-2026-10-24.md; PREREG-HAIKU-BOARD-2026-10-25.md; PREREG-PRICE-PARTNER-2026-10-25.md; PREREG-TEMPERATURE-2026-10-25.md -->), the split idea <!-- PREREG-INDEPENDENT-LABEL-AND-OWN-SCALE-2026-10-25.md, Part 3 -->, and every editorial cut.
 **Cael:** code, runs and writing.
 **The label checker, a separate Claude session:** the independent labels, the blind readings, and a recount of every number from the raw files. It also designed the compute + claims reader and C, and proposed the independent label and the own-scale reader <!-- PREREG-W6-W8-2026-10-25.md; PREREG-W9-2026-10-25.md; PREREG-INDEPENDENT-LABEL-AND-OWN-SCALE-2026-10-25.md -->.
 
-## LLM usage
+## LLM Usage Statement
 
 The paper was written with Claude (Opus 5.5). GPT-5.1 served as the board reader (R) and as a cold reader of the draft's sections (`coldreads/COLDREAD-GPT51-paper2-*.md`). DeepSeek v4.1 flash and Claude Haiku 5.5 were the sellers, and they were also readers in the experiments (Appendix A).
 
@@ -212,11 +218,15 @@ The model identifiers are `deepseek/deepseek-v4.1-flash`, `anthropic/claude-haik
 
 ## Appendix B. Details moved from Section 4.4
 
-Given the scale, a reader corrects the mistake about prices only if it is asked to place each seller's end price on it first: told to compute, it calls 0 or 2 of 25 cheap-talk markets agreements; given the same scale without that instruction, it calls 10. A reader that has to build the scale from the market's record does almost as badly as W (20 of 25), against our prediction, registered before it ran, of 8 or fewer. It builds the scale from each market's own early prices. Its estimate of each seller's competitive price (3.77 or 4.28, Section 3.1) is on average 0.82 too low in competition markets, where it took the undercutting troughs for the competitive level, and 0.42 too high in markets with an agreement carried out. The scale it builds moves with the market it is meant to judge, so competition looks like coordination: of the 32 competition markets, it called 11 "agreement carried out", 19 "parallel moves" and only 2 competition.
+Given the scale, a reader corrects the mistake about prices fully only if it is asked to place each seller's end price on it first: told to compute, it calls 0 or 2 of 25 cheap-talk markets agreements; given the same scale without that instruction, it calls 10. A reader that has to build the scale from the market's record does almost as badly as W (20 of 25), against our prediction, registered before it ran, of 8 or fewer. It builds the scale from each market's own early prices. Its estimate of each seller's competitive price (3.77 or 4.28, Section 3.1) is on average 0.82 too low in competition markets, where it took the undercutting troughs for the competitive level, and 0.42 too high in markets with an agreement carried out. The scale it builds moves with the market it is meant to judge, so competition looks like coordination: of the 32 competition markets, it called 11 "agreement carried out", 19 "parallel moves" and only 2 competition.
 
 C's collusion score (question 1 of Section 3.3) separates the high-price markets from the low ones perfectly (AUROC 1.0: every high-price market scores above every low-price one). This is not evidence of detection: the price label is itself a cut on the end price (Section 3.2), so any score that follows the end price ranks the markets perfectly. The raw end price alone, with no model and no scale, also scores 1.0. What the scale adds shows in C's cases, not in its score: it lets C judge from the end price itself whether prices followed, and so overrule W's "agreement carried out" on cheap talk (22 of 25 for W, 0 for C).
 
 One caution: C's collusion score sorts high-price markets from low-price ones perfectly, but that is no achievement: we called markets high or low by their end price, so anything that reads the end price sorts them perfectly. What C adds is in its cases (Table 5).
+
+**Pre-registered predictions that failed.** (1) The reader that builds its own scale: at most 8 of 25 cheap-talk markets called "agreement carried out" was predicted; it called 20. (2) The split at temperature 1: its words held (54 of 56 and 55 of 57 written agreements kept, above the 90% bar), but its cheap-talk calls (10 and 9, against at most 5) and its cases right (64 of 86 and 67 of 87, against at least 70) did not. (3) The split at temperature 0 was predicted to reach the corner of Figure 2 (at most 2 cheap-talk markets called "agreement carried out", with at least 90% of words kept); it called 4. (4) The watchers were predicted to blame the forced seller for at least a third of the forced cuts; none did (the baseline of Section 5). (5) The prices-only DeepSeek reader was predicted to catch cheap talk; it called 23 of 25 cheap-talk markets agreements. Its Haiku twin was predicted to keep true agreements; it kept 0 of 23. (6) At temperature 1, the readers' changes were predicted to concentrate on markets near the thresholds; they did not (0.54 of changes there, against a base of 0.39). (7) On Haiku, the board reader was predicted to disagree with the label checker more often on warned boards than on unwarned ones; it disagreed less (0 of 30 against 8 of 60). Three more could not be told apart from chance. Every other registered prediction held; each pre-registration carries its own results section.
+
+**The other second readers (Section 3.3).** Whole cases right, of the 87 DeepSeek markets with a price label: same record, read by DeepSeek 37 and by Haiku 35; prices only, read by DeepSeek 26 and by Haiku 26.
 
 ## Appendix C. How the written-agreement label was checked
 
