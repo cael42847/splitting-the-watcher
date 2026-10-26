@@ -182,15 +182,15 @@ Everything is at https://github.com/cael42847/splitting-the-watcher: the paper, 
 
 ## References
 
+- **Paper 1:** Nowicki, M., Cael (2026). Which single restriction removes the most collusion at the least cost, in a two-seller LLM market? Apart Research AI Collusion sprint, 23–25 October 2026. https://github.com/cael42847/which-single-restriction
 - Calvano, E., Calzolari, G., Denicolò, V., Pastorello, S. (2020). Artificial Intelligence, Algorithmic Pricing, and Collusion. American Economic Review 110(10), 3267–3297.
 - Nguyen, K. L. (2026). TraceGuard: Structured Multi-Dimensional Monitoring as a Collusion-Resistant Control Protocol. Talk at the Apart Research AI Collusion sprint, 24 October 2026 (slide "The four cases a monitor must separate"). Paper: Nguyen, K. L., Nghiem, H., Tran, T. (2026), arXiv:2604.03968.
-- Nowicki, M., Cael (2026). Which single restriction removes the most collusion at the least cost, in a two-seller LLM market? Apart Research AI Collusion sprint, 23–25 October 2026. https://github.com/cael42847/which-single-restriction
 
 ## Author Contributions
 
-**Marion Nowicki:** the question, the design calls (among them the warned cell, the Haiku cells, the prices-only reader and the temperature-1 re-read <!-- PREREG-SAY-DO-MARKET-B-2026-10-24.md; PREREG-HAIKU-BOARD-2026-10-25.md; PREREG-PRICE-PARTNER-2026-10-25.md; PREREG-TEMPERATURE-2026-10-25.md -->), the split idea <!-- PREREG-INDEPENDENT-LABEL-AND-OWN-SCALE-2026-10-25.md, Part 3 -->, and every editorial cut.
+**Marion Nowicki:** the question, the design calls (among them the warned cell, the Haiku cells, the prices-only reader and the temperature-1 re-read), the split idea, and every editorial cut.
 **Cael:** code, runs and writing.
-**The label checker, a separate Claude session:** the independent labels, the blind readings, and a recount of every number from the raw files. It also designed the compute + claims reader and C, and proposed the independent label and the own-scale reader <!-- PREREG-W6-W8-2026-10-25.md; PREREG-W9-2026-10-25.md; PREREG-INDEPENDENT-LABEL-AND-OWN-SCALE-2026-10-25.md -->.
+**The label checker, a separate Claude session:** the independent labels, the blind readings, and a recount of every number from the raw files. It also designed the compute + claims reader and C, and proposed the independent label and the own-scale reader.
 
 ## LLM Usage Statement
 
@@ -198,23 +198,23 @@ The paper was written with Claude (Opus 5.5). GPT-5.1 served as the board reader
 
 ## Appendix A. Prompts, hashes and names
 
-Each prompt is frozen before any test market is read. Its hash is the first 16 hex characters of the sha256 of the prompt template, as `h()` in `slope/watch_run.py` computes it. Every output file stores the hash it ran with. The stored hashes are the same across all files of each reader <!-- out/ 219 files, prices/ 104, ruler/ 104, ruler-w9/ 218, ownscale/ 104, board/ 153, temp/ 208, temp-haiku/ 114; checked 2026-10-26 -->.
+Each prompt is frozen before any test market is read. Its hash is the first 16 hex characters of the sha256 of the prompt template, as `h()` in `slope/watch_run.py` computes it. Every output file stores the hash it ran with. The stored hashes are the same across all files of each reader.
 
 | paper name | code name | script, prompt | hash (as stored) | model | temperature |
 |---|---|---|---|---|---|
-| **W** first watcher | W1 | `watch_run.py`, WATCHER | 0b44f267eaef14e1 <!-- PREREG-SAY-DO-MARKET-B-2026-10-24.md, FROZEN; out/*.watch.json --> | DeepSeek v4.1 flash | 0; also 1 (Section 4.5) |
-| "same record" second reader | W2 (DeepSeek), W3 (Haiku) | `watch_run.py`, PARTNER (one text, two models) | 26b6a6a210aba98f <!-- PREREG-SAY-DO-MARKET-B-2026-10-24.md, FROZEN; out/*.watch.json --> | W2 DeepSeek v4.1 flash; W3 Claude Haiku 5.5 | 0 |
-| "prices only" second reader | W4 (DeepSeek), W5 (Haiku) | `watch_run_prices.py`, PRICE_PARTNER v2 | 1f4c8fbdce18bb9c <!-- PREREG-PRICE-PARTNER-2026-10-25.md; prices/*.json --> (v1, 2516a8d9bd97b72c, was used on development markets only <!-- PREREG-PRICE-PARTNER-2026-10-25.md -->) | W4 DeepSeek v4.1 flash; W5 Claude Haiku 5.5 | 0 |
-| "given the scale" | W6 | `watch_run_ruler.py`, scale block + PRICE_PARTNER | 40a8a38def81caf4; scale block dbad717d5f575f72 <!-- PREREG-W6-W8-2026-10-25.md; ruler/*.ruler.json --> | DeepSeek v4.1 flash | 0 |
-| "compute + claims" | W8 | `watch_run_ruler.py`, two calls: W8_BLIND then W8_CHECK | e69a9b075cd26e20; W8_BLIND 97eebb04a53b0b52, W8_CHECK c21fbd836e42e808 <!-- PREREG-W6-W8-2026-10-25.md; ruler/*.ruler.json --> | DeepSeek v4.1 flash | 0 |
-| **C** compute-first reader | W9 | `watch_run_ruler.py --arm W9`, scale block + W9_PROMPT | 31eaab1aca9c0390; W9_PROMPT efc4d30b3917db85, COMPUTE a70749631332efb5 <!-- PREREG-W9-2026-10-25.md; ruler-w9/*.w9.json --> | DeepSeek v4.1 flash | 0; also 1 (Section 4.5) |
-| "builds its own scale" | W10 | `watch_run_ownscale.py`, W10_PROMPT | e9f249da025bad0f; OWN 6a20ff22153086b5 <!-- PREREG-INDEPENDENT-LABEL-AND-OWN-SCALE-2026-10-25.md; ownscale/*.json --> | DeepSeek v4.1 flash | 0 |
-| **R** board reader | L (the label) | `board_label.py`, READER + RETRY | READER 2b8d00b25e9ae71e, RETRY 6359cebb5cb5fe99 <!-- PREREG-INDEPENDENT-LABEL-AND-OWN-SCALE-2026-10-25.md, Amendment A; board/*.board.json --> (READER 0af5880fa6c548c3 was used on development boards only, before the quote checks were tightened <!-- same file -->) | GPT-5.1 | 0; also 1 (Section 4.5) |
+| **W** first watcher | W1 | `watch_run.py`, WATCHER | 0b44f267eaef14e1 | DeepSeek v4.1 flash | 0; also 1 (Section 4.5) |
+| "same record" second reader | W2 (DeepSeek), W3 (Haiku) | `watch_run.py`, PARTNER (one text, two models) | 26b6a6a210aba98f | W2 DeepSeek v4.1 flash; W3 Claude Haiku 5.5 | 0 |
+| "prices only" second reader | W4 (DeepSeek), W5 (Haiku) | `watch_run_prices.py`, PRICE_PARTNER v2 | 1f4c8fbdce18bb9c (v1, 2516a8d9bd97b72c, was used on development markets only) | W4 DeepSeek v4.1 flash; W5 Claude Haiku 5.5 | 0 |
+| "given the scale" | W6 | `watch_run_ruler.py`, scale block + PRICE_PARTNER | 40a8a38def81caf4; scale block dbad717d5f575f72 | DeepSeek v4.1 flash | 0 |
+| "compute + claims" | W8 | `watch_run_ruler.py`, two calls: W8_BLIND then W8_CHECK | e69a9b075cd26e20; W8_BLIND 97eebb04a53b0b52, W8_CHECK c21fbd836e42e808 | DeepSeek v4.1 flash | 0 |
+| **C** compute-first reader | W9 | `watch_run_ruler.py --arm W9`, scale block + W9_PROMPT | 31eaab1aca9c0390; W9_PROMPT efc4d30b3917db85, COMPUTE a70749631332efb5 | DeepSeek v4.1 flash | 0; also 1 (Section 4.5) |
+| "builds its own scale" | W10 | `watch_run_ownscale.py`, W10_PROMPT | e9f249da025bad0f; OWN 6a20ff22153086b5 | DeepSeek v4.1 flash | 0 |
+| **R** board reader | L (the label) | `board_label.py`, READER + RETRY | READER 2b8d00b25e9ae71e, RETRY 6359cebb5cb5fe99 (READER 0af5880fa6c548c3 was used on development boards only, before the quote checks were tightened) | GPT-5.1 | 0; also 1 (Section 4.5) |
 | **S** split | split | `split_indep.py` (a fixed rule, no prompt) | none | R + C | as R and C |
 | label checker | "the hands' reading" in the files | read by hand, no prompt | none | a separate Claude session (Claude Opus 5.5, in Claude Code) | — |
-| sellers | SAY-* cells | `slope/game.py` via `runsaydo.sh`, `runsaydo_haiku*.sh` | not hashed; the settings are stored in each run file's meta | DeepSeek v4.1 flash or Claude Haiku 5.5 | 1.0 <!-- runs/money/saydo/SAY-*.jsonl meta "temp" --> |
+| sellers | SAY-* cells | `slope/game.py` via `runsaydo.sh`, `runsaydo_haiku*.sh` | not hashed; the settings are stored in each run file's meta | DeepSeek v4.1 flash or Claude Haiku 5.5 | 1.0 |
 
-The model identifiers are `deepseek/deepseek-v4.1-flash`, `anthropic/claude-haiku-5.5` and `openai/gpt-5.1`, all called through OpenRouter. Every DeepSeek call, from sellers and readers alike, was pinned to one host (Together) with no fallbacks. Haiku was routed by OpenRouter <!-- PREREG-SAY-DO-MARKET-B-2026-10-24.md, FROZEN -->. Reasoning was off, and every reader drew one sample per market. The limit was 4000 output tokens for the watchers and 1500 for the board reader <!-- watch_run.py; board_label.py -->. A reply that failed to parse was retried up to 2 times <!-- watch_run.py; board_label.py -->, and every try was kept. On Haiku markets only W, C and R were run. At temperature 1, `run_temp.py` re-ran W, C and R with the same prompts (same hashes) <!-- temp/, temp-haiku/ stored hashes -->.
+The model identifiers are `deepseek/deepseek-v4.1-flash`, `anthropic/claude-haiku-5.5` and `openai/gpt-5.1`, all called through OpenRouter. Every DeepSeek call, from sellers and readers alike, was pinned to one host (Together) with no fallbacks. Haiku was routed by OpenRouter. Reasoning was off, and every reader drew one sample per market. The limit was 4000 output tokens for the watchers and 1500 for the board reader. A reply that failed to parse was retried up to 2 times, and every try was kept. On Haiku markets only W, C and R were run. At temperature 1, `run_temp.py` re-ran W, C and R with the same prompts (same hashes).
 
 ## Appendix B. Details moved from Section 4.4
 
@@ -230,11 +230,11 @@ One caution: C's collusion score sorts high-price markets from low-price ones pe
 
 ## Appendix C. How the written-agreement label was checked
 
-**Quote check.** A "yes" from the board reader counts only if a script finds both of its quotes, of at least 3 words each <!-- PREREG-INDEPENDENT-LABEL-AND-OWN-SCALE-2026-10-25.md, Amendment A -->, in the named seller's post in the named round. The acceptance must be another seller's, in a later round. A failed check is retried in the same conversation, with the reason given, up to 2 times.
+**Quote check.** A "yes" from the board reader counts only if a script finds both of its quotes, of at least 3 words each, in the named seller's post in the named round. The acceptance must be another seller's, in a later round. A failed check is retried in the same conversation, with the reason given, up to 2 times.
 
-**DeepSeek boards.** Before any of the reader's labels were opened, the label checker read 10 boards blind, drawn by a fixed seed. It agreed with the reader on 10 of 10 <!-- PREREG-INDEPENDENT-LABEL-AND-OWN-SCALE-2026-10-25.md, "After the run" -->, against a gate of 8 <!-- same file -->. The reader said yes on 57 of the 62 boards, 24 of them after a failed check <!-- SCORES-INDEP.json, try counts -->. It checked all 24 repaired yeses in context and accepted them. It read every distinct post of the 5 "no" boards <!-- SCORES-INDEP.json --> and disputed all 5, 4 of them on warned boards <!-- PREREG-INDEPENDENT-LABEL-AND-OWN-SCALE-2026-10-25.md -->. Its reading, 62 of 62 <!-- SCORES-INDEP-HANDS-L.json -->, is the truth in Results.
+**DeepSeek boards.** Before any of the reader's labels were opened, the label checker read 10 boards blind, drawn by a fixed seed. It agreed with the reader on 10 of 10, against a gate of 8. The reader said yes on 57 of the 62 boards, 24 of them after a failed check. It checked all 24 repaired yeses in context and accepted them. It read every distinct post of the 5 "no" boards and disputed all 5, 4 of them on warned boards. Its reading, 62 of 62, is the truth in Results.
 
-**Haiku boards.** The label checker read all 90 <!-- SCORES-HAIKU.json --> before the reader ran. It read the first 9 <!-- PREREG-HAIKU-BOARD-2026-10-25.md, Amendment E; HANDS-BLIND-MARKS-HAIKU-2026-10-25.md --> knowing their cell. It read the other 81 as board-only text under shuffled neutral ids, in 4 batches <!-- PREREG-HAIKU-BOARD-2026-10-25.md, Amendment E; hands-blind-haiku/B001–B081 -->. Each batch's id-to-market key was committed as a sha256 hash and opened only after all the marks were in <!-- PREREG-HAIKU-BOARD-2026-10-25.md; hands-blind-haiku/KEY-opened-after-marks.json, sha256 1ffa11b8… matches -->. The warned cell showed in the text: all 30 warned boards were recognised <!-- PREREG-HAIKU-BOARD-2026-10-25.md -->. The reader agreed with this blind reading on 82 of 90 boards, or 0.91, against a registered 0.85 <!-- SCORES-HAIKU.json, H-5; PREREG-HAIKU-BOARD-2026-10-25.md -->.
+**Haiku boards.** The label checker read all 90 before the reader ran. It read the first 9 knowing their cell. It read the other 81 as board-only text under shuffled neutral ids, in 4 batches. Each batch's id-to-market key was committed as a sha256 hash and opened only after all the marks were in. The warned cell showed in the text: all 30 warned boards were recognised. The reader agreed with this blind reading on 82 of 90 boards, or 0.91, against a registered 0.85.
 
 ## Appendix D. Before and during the sprint
 
@@ -244,9 +244,9 @@ One caution: C's collusion score sorts high-price markets from low-price ones pe
 - the scorer `slope/score_map.py` (19 October), which computes each seller's scale and the end index.
 
 **During the sprint.**
-- *23 October.* The patrol flags in `game.py` (Paper 1). Thirty <!-- runs/money/sprint/MB-*.jsonl --> 30-round markets (`runs/money/sprint/`), which served with the 19 October markets as the watchers' development set. They were used only to fix the report and answer formats, never scored.
-- *24 October.* The warning sentence (`game.py --monitor`), the launcher `runsaydo.sh` and the 105 <!-- runs/money/saydo/SAY-SP*/SAY-TP*/SAY-TW0* --> DeepSeek markets of this paper, all started that evening <!-- run-file meta "started" -->. Also the report builder `watch_report.py` and `watch_run.py`, which holds W and the same-record second readers. Their prompts were frozen before any test market was read.
-- *25 October.* Every other reader: prices only, given the scale, compute + claims, C, builds its own scale, and R. Also the split, the temperature-1 re-reads, the 114 <!-- SCORES-HAIKU.json --> Haiku markets (`runsaydo_haiku*.sh`), the blind readings, every scorer, and the figure scripts.
+- *23 October.* The patrol flags in `game.py` (Paper 1). Thirty 30-round markets (`runs/money/sprint/`), which served with the 19 October markets as the watchers' development set. They were used only to fix the report and answer formats, never scored.
+- *24 October.* The warning sentence (`game.py --monitor`), the launcher `runsaydo.sh` and the 105 DeepSeek markets of this paper, all started that evening. Also the report builder `watch_report.py` and `watch_run.py`, which holds W and the same-record second readers. Their prompts were frozen before any test market was read.
+- *25 October.* Every other reader: prices only, given the scale, compute + claims, C, builds its own scale, and R. Also the split, the temperature-1 re-reads, the 114 Haiku markets (`runsaydo_haiku*.sh`), the blind readings, every scorer, and the figure scripts.
 - *25–26 October.* Writing the paper.
 
 
@@ -254,5 +254,5 @@ One caution: C's collusion score sorts high-price markets from low-price ones pe
 
 One market design, two seller models. No Haiku market reached high prices, so on Haiku the readers only had to tell cheap talk from competition. Watchers read each market after it ended, once at temperature 0 and once or twice at temperature 1. The price label is a cut on the end price. Since C is given the scale and told to compute the end price, its price half partly recovers the label's own rule (Appendix B). The written-agreement truth comes from one label checker, a Claude session that also read Claude Haiku's boards. Its Haiku reading was blind to the market but not to the warned cell. Our readers were given the scale, and the one that had to build its own failed. The prompts were fixed on development markets of the same design.
 
-*Dual use.* Sellers, or the people who build them, could use a better watcher to test evasion before they deploy, rewriting an agreement until the reader says no. Our boards already show how. Haiku sellers wrapped their agreements in "pricing independently", and on 4 <!-- PREREG-INDEPENDENT-LABEL-AND-OWN-SCALE-2026-10-25.md --> warned DeepSeek boards, compliance wording led the board reader to say no where the label checker found an agreement.
+*Dual use.* Sellers, or the people who build them, could use a better watcher to test evasion before they deploy, rewriting an agreement until the reader says no. Our boards already show how. Haiku sellers wrapped their agreements in "pricing independently", and on 4 warned DeepSeek boards, compliance wording led the board reader to say no where the label checker found an agreement.
 
