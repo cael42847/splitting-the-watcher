@@ -180,7 +180,7 @@ The split loses some cases and keeps its lead on both models. The loss comes fro
 
 ## 7 Conclusion
 
-Scheduled price cuts, the restriction that removed the most collusion in Paper 1 while leaving sellers in charge of their prices, do not adapt to the market they cut: they need a watcher to say when to cut, and by how much. Asked one bundled question, a reader following an LLM watcher trades one mistake for another. Splitting the reading works better: one reader for what the sellers wrote, and one for what their prices did, given each seller's competitive and joint-profit prices. The split put 75 of 87 DeepSeek and 80 of 100 Haiku markets in the right case, against 53 and 60 for the best watcher with one reader, and kept its lead at temperature 1. It is the watcher we would next like to test with the patrol, live.
+Scheduled price cuts, the restriction that removed the most collusion in Paper 1 while leaving sellers in charge of their prices, do not adapt to the market they cut: they need a watcher to say when to cut, and by how much. A watcher checked by a second reader, the pair that serves us well in our own work, trades one mistake for another here. What worked is one reader per question: the words to one reader, the prices to another, given each seller's competitive and joint-profit prices, and the payments to the first watcher, which reads the sellers' notes. This split put 75 of 87 DeepSeek and 80 of 100 Haiku markets in the right case, against 53 and 60 for the best watcher with one reader, and kept its lead at temperature 1. A monitor with more to check would, by the same design, need more readers, one per question. It is the watcher we would next like to test with the patrol, live.
 
 ## Code and Data
 
