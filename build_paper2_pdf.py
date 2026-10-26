@@ -120,7 +120,7 @@ h2{font-size:14pt;margin:10pt 0 5pt;page-break-after:avoid} h3{font-size:11.5pt;
 h2:first-of-type{} h2.first{page-break-before:always}
 p{margin:0 0 5.5pt;text-align:justify} ol,ul{margin:0 0 7pt;padding-left:1.5em} li{margin:0 0 2pt}
 p.tcap{page-break-after:avoid;margin-bottom:3pt} tr{page-break-inside:avoid} table.long{page-break-inside:auto} h2.newpage{page-break-before:always} table{page-break-inside:avoid;border-collapse:collapse;font-size:8.3pt;line-height:1.18;margin:4pt 0 9pt;width:100%} td,th{border:1px solid #888;padding:1px 4px;vertical-align:top;text-align:left}
-code{font-size:9pt} figure{margin:6pt auto;page-break-inside:avoid} figure.wide{width:100%} figure.w94{width:94%} figure.tall{width:100%} figure.narrow{width:62%}
+code{font-size:9pt} figure{margin:6pt auto;page-break-inside:avoid} figure.wide{width:84%} figure.w94{width:94%} figure.tall{width:100%} figure.narrow{width:62%}
 img{width:100%;display:block} figcaption{font-size:8.6pt;margin-top:3pt;text-align:justify}
 a{color:#1155cc;text-decoration:underline;word-break:break-all}
 p:has(+ ol),p:has(+ ul),p:has(+ table),p:has(+ figure){break-after:avoid;page-break-after:avoid} ol,ul{break-inside:avoid;page-break-inside:avoid} li{break-inside:avoid} figure+p{break-before:avoid} h2,h3{break-after:avoid}</style>'''
